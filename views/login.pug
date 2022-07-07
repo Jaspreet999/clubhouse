@@ -1,0 +1,20 @@
+extends layout.pug 
+block contents 
+
+    div(class="form")
+
+        form( method="POST" , action="")
+            div(class="form-label")
+                label(for="username") Username
+
+            div(class="form-field")    
+                input(type="text", name="username")
+
+            div(class="form-label")
+                label(for="password") Password
+
+            div(class="form-field")    
+                input(type="password", name="password")
+
+            
+            button(type="submit") login          

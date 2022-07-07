@@ -1,0 +1,22 @@
+.card{
+   width: 50%;
+   height: fit-content;
+   background-color: gray;
+   margin-left: 25%;
+   margin-right: 25%;
+   margin-top: 1%;
+   padding: 1%;
+   border: 5px solid gray;
+   border-radius: 5px;
+   box-shadow: 0 4px 8px 0 lightgray;
+   margin-bottom: 5%;
+}
+
+.card:hover{
+    box-shadow: 0 8px 16px 0 black;
+}
+
+.card-body{
+    display: inline;
+    padding: auto;
+}

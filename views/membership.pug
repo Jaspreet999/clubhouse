@@ -1,0 +1,13 @@
+extends layout.pug 
+block contents 
+
+    div(class="form")
+
+        form( method="POST" , action="")
+            div(class="form-label")
+                label(for="membership") Membership code
+
+            div(class="form-field")    
+                input(type="password", name="membershipcode")
+            
+            button(type="submit") login          

@@ -1,0 +1,48 @@
+body{
+    background-color: white;
+    margin: 0;
+    align-content: center;
+}
+
+header,footer{
+    width: 100%;
+    height: 10%;
+    background: gray;
+}
+footer{
+    height: fit-content;
+}
+header{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+
+.header_text > h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;    
+    margin-left: 2%;
+    font-size: large;
+}
+
+nav{
+    text-align: right;  
+    margin-right: 3%;
+}
+
+a{
+    color: black;
+    margin-right: 2%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: larger;
+}
+
+footer > p{
+    text-align: right;
+    padding-right: 1%;
+}
+
+footer{
+    bottom: 0;
+    position: fixed;
+    padding: 0;
+}
+

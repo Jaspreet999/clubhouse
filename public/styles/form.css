@@ -1,0 +1,38 @@
+.form{
+    width: 25%;
+    height: auto;
+    background-color: gray;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 4%;
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: 2% solid black;
+}
+
+.form-field{
+    margin-bottom: 2%;
+}
+
+label{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
+
+input{
+    height: 5%;
+    width: 100%;
+    box-sizing: border-box;
+    border:none;
+    border-radius: 2%;
+    margin:8px 0;
+    padding: 2%;
+
+}
+
+button{
+    width: 25%;
+    height:4%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+}
