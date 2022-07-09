@@ -1,30 +1,17 @@
 extends layout.pug
 block contents 
 
-    div(class ="card")
-        div(class ="card-body")
-            h3(class = "card-title") Jaspreet Singh 
-            p(class = "card-description") In this project, building an exclusive clubhouse where your members can write anonymous posts. Inside the clubhouse, members can see who the author of a post is, but outside they can only see the story and wonder who wrote it."
-            a(href="/delete") delete
-            a(href="/update") update 
+    if messages 
+        each message in messages
 
-    div(class ="card")
-        div(class ="card-body")
-            h3(class = "card-title") Jaspreet Singh 
-            p(class = "card-description") In this project, building an exclusive clubhouse where your members can write anonymous posts. Inside the clubhouse, members can see who the author of a post is, but outside they can only see the story and wonder who wrote it."
-            a(href="/delete") delete
-            a(href="/update") update
+            div(class ="card")
+                div(class ="card-body")
+                    if(user)
+                        h3(class = "card-title") #{message.author.username} 
+                    else 
+                         h3(class = "card-title") unknown   
+                    p(class = "card-description") #{message.description}
+                    a(href="/delete"+message.id ) delete
+                    a(href="/update"+message.id) update 
 
-    div(class ="card")
-        div(class ="card-body")
-            h3(class = "card-title") Jaspreet Singh 
-            p(class = "card-description") In this project, building an exclusive clubhouse where your members can write anonymous posts. Inside the clubhouse, members can see who the author of a post is, but outside they can only see the story and wonder who wrote it."
-            a(href="/delete") delete
-            a(href="/update") update 
-
-    div(class ="card")
-        div(class ="card-body")
-            h3(class = "card-title") Jaspreet Singh 
-            p(class = "card-description") In this project, building an exclusive clubhouse where your members can write anonymous posts. Inside the clubhouse, members can see who the author of a post is, but outside they can only see the story and wonder who wrote it."
-            a(href="/delete") delete
-            a(href="/update") update                 
+    

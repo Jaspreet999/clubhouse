@@ -23,8 +23,9 @@ input{
     height: 5%;
     width: 100%;
     box-sizing: border-box;
-    border:none;
-    border-radius: 2%;
+    border:1% solid gray;
+    border-radius: 1%;
+    border-radius: 5px;
     margin:8px 0;
     padding: 2%;
 

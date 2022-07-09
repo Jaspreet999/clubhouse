@@ -1,0 +1,15 @@
+extends layout.pug 
+block contents 
+
+    div(class="form")
+
+        form( method="POST" , action="")
+            div(class="form-label")
+                label(for="description") Description
+
+
+            div(class="form-field")    
+                textarea(cols="30", rows="10",type="text",placeholder="Enter your message here", name="description")
+
+            
+            button(type="submit") submit 

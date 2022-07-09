@@ -14,7 +14,7 @@ footer{
 }
 header{
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 30% 20% 50%;
 }
 
 .header_text > h3{
@@ -33,6 +33,9 @@ a{
     margin-right: 2%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: larger;
+}
+h3>a{
+    text-decoration: none;
 }
 
 footer > p{
