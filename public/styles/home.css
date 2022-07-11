@@ -20,3 +20,11 @@
     display: inline;
     padding: auto;
 }
+
+.heading{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.card-date{
+  text-align: right;
+}

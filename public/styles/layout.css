@@ -14,7 +14,7 @@ footer{
 }
 header{
     display: grid;
-    grid-template-columns: 30% 20% 50%;
+    grid-template-columns: 50% 45% 5%;
 }
 
 .header_text > h3{
@@ -47,5 +47,9 @@ footer{
     bottom: 0;
     position: fixed;
     padding: 0;
+}
+
+b{
+    color: red;
 }
 

@@ -6,7 +6,6 @@ const bcrypt = require('bcrypt')
 const {body,validationResult} = require('express-validator')
 
 
-
 exports.login_get = function(req,res,next){
     res.render("login",{user:req.user})
 }
@@ -46,7 +45,8 @@ exports.sign_up_post = [
             const user = new User({
                 username:req.body.username,
                 password:req.body.password,
-                admin:false
+                admin:false,
+                membership:false
             })
             user.save(function (err){
                 if(err) return next(err)
@@ -56,9 +56,7 @@ exports.sign_up_post = [
 
         }
         
-    }
-
-  
+    } 
 ]
 
 exports.admin_get = function(req,res,next){
@@ -66,18 +64,99 @@ exports.admin_get = function(req,res,next){
 }
 
 
-exports.admin_post = function(req,res,next){
-    res.send("post sign up page")
-}
+exports.admin_post = [
+    body('admincode').trim().isLength({min:4}).withMessage("Password should be greater than 4 digit").escape(),
+
+    (req,res,next)=>{
+        
+        var errMess = ""
+        if(req.body.admincode !== "jass123"){
+            errMess = "password not match"
+        }
+
+        const errors = validationResult(req)
+        
+        if(!errors.isEmpty() || errMess!=""){
+            
+            res.render('admin',{error:errors.array()[0],errMess:errMess})
+        }else{
+            if(req.user){
+                const user = new User({
+                    _id:req.user._id,
+                    username:req.user.username,
+                    password:req.user.password,
+                    admin:true,
+                    membership:true
+                })
+                req.login(user, async(err) => {
+                    if (err) 
+                      return next(err);
+                })
+                
+                User.findByIdAndUpdate(req.user._id,user,function(err,user){
+                    if(err) return next(err)
+                    
+                    res.redirect("/")
+                    
+                })
+            }else{
+                res.render('admin',{errMess:"please authenticate first"})
+            }
+            
+        }
+
+        
+    }
+]
 
 exports.membership_get = function(req,res,next){
     res.render("membership",{user:req.user})
 }
 
 
-exports.membership_post = function(req,res,next){
-    res.send("post sign up page")
-}
+exports.membership_post = [
+
+    body('membershipcode').trim().isLength({min:4}).withMessage("Password should be greater than 4 digit").escape(),
+
+    (req,res,next)=>{
+        
+        var errMess = ""
+        if(req.body.membershipcode !== "jass123"){
+            errMess = "password not match"
+        }
+
+        const errors = validationResult(req)
+        
+        if(!errors.isEmpty() || errMess!=""){
+            //console.log(errMess)
+            res.render('membership',{error:errors.array()[0],errMess:errMess})
+        }else{
+            
+            if(req.user){
+                const user = new User({
+                    _id:req.user._id,
+                    username:req.user.username,
+                    password:req.user.password,
+                    membership:true
+                })
+                req.login(user, async(err) => {
+                    if (err) 
+                      return next(err);
+                })
+                User.findByIdAndUpdate(req.user._id,user,{},function(err,user){
+                    if(err) return next(err)
+
+                    res.redirect("/")
+                })
+            }else{
+                res.render('membership',{errMess:"please authenticate first"})
+            }
+            
+        }
+
+        
+    }
+]
 
 
 exports.logout_post = function(req,res,next){

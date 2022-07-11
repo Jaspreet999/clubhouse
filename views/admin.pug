@@ -3,6 +3,12 @@ block contents
 
     div(class="form")
 
+        if(error)
+            b #{error.msg}
+        
+        if(errMess)
+            b= errMess 
+
         form( method="POST" , action="")
             div(class="form-label")
                 label(for="admin") Admin code

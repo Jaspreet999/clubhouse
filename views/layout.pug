@@ -10,11 +10,7 @@ html
 
         header
             div(class = "header_text")
-                h3: a(href="/")  clubhouse
-
-            div(class = "header_text")
-                if(user)
-                    h4 #{user.username}   
+                h3: a(href="/")  clubhouse  
                 
             nav(class = "header_nav")
                 if(user)
@@ -26,6 +22,10 @@ html
                     
                     a(href="/sign_up" ) sign up
                     a(href="/login" ) login 
+
+            div(class = "header_text")
+                if(user)
+                    h5 #{user.username}         
                      
 
         block contents        

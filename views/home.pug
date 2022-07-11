@@ -6,12 +6,30 @@ block contents
 
             div(class ="card")
                 div(class ="card-body")
+
                     if(user)
-                        h3(class = "card-title") #{message.author.username} 
+                        if(user.admin)
+                            div(class="heading")
+                                div(class = "card-title")
+                                    h3 #{message.author.username}   
+                                div(class = "card-date")
+                                    h5(class = "card-date") 17/10/2022
+                        else 
+                            div(class="heading")
+                                h3(class = "card-title") unkonwn            
+
+
                     else 
-                         h3(class = "card-title") unknown   
+                            div(class="heading")
+                                h3(class = "card-title") unkonwn
+
+
                     p(class = "card-description") #{message.description}
-                    a(href="/delete"+message.id ) delete
-                    a(href="/update"+message.id) update 
+
+
+                    if(user)
+                        if(user.admin)
+                            a(href="/delete/"+message.id ) delete
+                            a(href="/update/"+message.id) update 
 
     

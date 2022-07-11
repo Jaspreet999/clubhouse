@@ -27,4 +27,8 @@ router.get('/createmessage',messageController.createmessage_get)
 
 router.post('/createmessage',messageController.createmessage_post)
 
+router.get("/delete/:id",messageController.message_delete_get)
+
+router.get("/update/:id",messageController.message_update_get)
+router.post("/update/:id",messageController.message_update_post)
 module.exports = router

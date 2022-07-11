@@ -3,13 +3,19 @@ block contents
 
     div(class="form")
 
+        if(error)
+            b #{error.msg}
+
+        if(errMess)
+            b= errMess    
+
         form( method="POST" , action="")
             div(class="form-label")
                 label(for="description") Description
-
-
-            div(class="form-field")    
-                textarea(cols="30", rows="10",type="text",placeholder="Enter your message here", name="description")
-
+        
+            div(class="form-field")  
+                 
+                input(cols="30", rows="10", type="text", 
+                value=(undefined===message ? 'please enter some text' : message.description),  name="description")
             
             button(type="submit") submit 

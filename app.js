@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 const passport = require('passport')
 const session = require('express-session')
 const LocalStrategy = require('passport-local').Strategy
+const logout = require('express-passport-logout')
 
 
 const indexRoutes = require('./routes/index')
@@ -59,13 +60,13 @@ passport.deserializeUser((user,done)=>{
     })
 })
 
-app.get("/logout", (req, res) => {
-      req.user = ""
-      res.redirect("/");
-    
+app.get('/logout', function (req, res){
+    res.clearCookie('connect.sid'); // <-- not req.logout();
+    delete req.session
+    res.redirect('/')
   });
 
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(session({ secret: "cats", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({
