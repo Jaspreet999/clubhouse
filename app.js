@@ -11,7 +11,7 @@ const logout = require('express-passport-logout')
 const indexRoutes = require('./routes/index')
 const User = require('./model/user')
 
-const mongoDb = "mongodb+srv://m-001-student:m001-mongodb@sandbox.zoqk7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const mongoDb = "";
 mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
